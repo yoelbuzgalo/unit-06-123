@@ -20,9 +20,11 @@ def for_fill(an_array):
     return an_array
 
 def roll_the_die(sides):
+    
     return random.randint(1, sides)
 
 def main():
+    random.seed(1)
     # making_arrays()
     # print(while_fill(arrays.Array(10)))
     # print(for_fill(arrays.Array(10)))
