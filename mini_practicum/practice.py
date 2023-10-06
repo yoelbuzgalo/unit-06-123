@@ -16,6 +16,10 @@ def find_rabbit():
 
 def find_rabbit_regex ():
     count = 0
+    with open("alice.txt") as file:
+        for line in file:
+            if re.findall("[A-Za-z]*Rabbit", line) or re.findall("Rabbit[A-Za-z]*", line):
+                count += 1
     
     ####Your code goes here
 
