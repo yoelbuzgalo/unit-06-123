@@ -1,0 +1,43 @@
+Unit 05 Practice Problems
+
+
+For the remainder of this semester, you will begin each new unit by solving a
+set of practice problems based on the material from the previous unit. You will
+have 30 minutes to complete your answers and push your solution to GitHub. 
+Raise your hand if you need help.
+
+The goal of these "mini practica" is to give you practice with coding problems
+similar to those that you will see on the midterm practica. You will be 
+required to solve each problem with minimal assistance. You should use these
+mini-practica as an opportunity to gauge your preparedness for the exams.
+
+Each mini-practicum counts as a homework assignment. Each of the numbered 
+problems below are weighted equally. 
+
+
+QUESTIONS
+
+
+1. Find the Rabbit. 
+
+In the repo for this week, you will find a Python file named "practice.py". 
+It contains functions/stubs that you will need to implement. 
+
+The first function, find_rabbit(), should return the number of times the word 
+"Rabbit" appears in the story 'Alice and Wonderland'. The file alice.txt has 
+been provided. 
+
+You must complete this function keeping in mind the following:
+  -  You may ignore instances of "Rabbit" that are adjacent to punctuation or 
+     other characters. (29 instances expected)
+  -  You are searching strictly for the capitalized version of the word, 
+     "Rabbit".
+
+
+2. Regular Expressive Rabbits
+
+Implement the second function to achieve the same thing, but using Regular 
+Expressions to search. 
+  -  You are not allowed to use split(). 
+  -  You will now find instances of the word even if they are next to 
+     punctuation, like "Rabbit!" (45 instances expected)
