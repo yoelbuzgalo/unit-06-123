@@ -1,4 +1,5 @@
 import arrays
+import random
 
 def making_arrays():
     print(arrays.Array(5))
@@ -18,10 +19,15 @@ def for_fill(an_array):
         an_array[index] = index
     return an_array
 
+def roll_the_die(sides):
+    return random.randint(1, sides)
+
 def main():
     # making_arrays()
     # print(while_fill(arrays.Array(10)))
-    print(for_fill(arrays.Array(10)))
+    # print(for_fill(arrays.Array(10)))
+    for _ in range(10):
+        print(roll_the_die(6))
 
 if __name__ == "__main__":
     main()
