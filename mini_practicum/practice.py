@@ -3,7 +3,13 @@ import re
 
 def find_rabbit():
     count = 0
-
+    with open("alice.txt") as file:
+        header = next(file).strip().split()
+        for line in file:
+            line = line.strip().split()
+            for word in line:
+                if word == "Rabbit":
+                    count += 1
     ####Your code goes here
 
     return count
