@@ -46,9 +46,11 @@ def print_odds(an_array):
             print(an_array[index], end=" ")
 
 def print_odds_rec(an_array, index = 0):
+    if index >= len(an_array):
+        return
     if an_array[index] % 2 == 1:
         print(an_array[index], end=" ")
-    # recurse
+        # recurse
     print_odds_rec(an_array, index + 1)
 
 def main():
