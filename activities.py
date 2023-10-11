@@ -65,6 +65,14 @@ def countdown(n, sum=0):
         sum = n + countdown(n-1)
         return sum
 
+def factorial(n):
+    if n < 0:
+        return None
+    if n < 2:
+        return 1
+    fact = n * factorial(n-1)
+    return fact
+
 def main():
     # random.seed(1)
     # making_arrays()
@@ -76,7 +84,8 @@ def main():
     an_array = array_utils.range_array(0,100)
     # print_odds(an_array)
     # print_odds_rec(an_array)
-    print("Sum:",countdown(5))
+    # print("Sum:",countdown(5))
+    print(factorial(5))
 
 
 
