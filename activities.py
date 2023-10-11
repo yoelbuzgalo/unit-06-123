@@ -73,6 +73,17 @@ def factorial(n):
     fact = n * factorial(n-1)
     return fact
 
+def count_up(n, count=0):
+    if n < 0:
+        print("Undefined")
+    elif count == n:
+        print(count)
+        return count
+    else:
+        print(count)
+        sum = count + count_up(n, count+1)
+        return sum
+
 def main():
     # random.seed(1)
     # making_arrays()
@@ -85,7 +96,7 @@ def main():
     # print_odds(an_array)
     # print_odds_rec(an_array)
     # print("Sum:",countdown(5))
-    print(factorial(5))
+    print(count_up(5))
 
 
 
