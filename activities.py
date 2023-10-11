@@ -53,6 +53,18 @@ def print_odds_rec(an_array, index = 0):
         # recurse
     print_odds_rec(an_array, index + 1)
 
+def countdown(n, sum=0):
+    sum += n
+    if n < 0:
+        print("Undefined")
+    elif n == 0:
+        print(0)
+        return 0
+    else:
+        print(n)
+        sum = n + countdown(n-1)
+        return sum
+
 def main():
     # random.seed(1)
     # making_arrays()
@@ -63,7 +75,8 @@ def main():
     # linear_timer()
     an_array = array_utils.range_array(0,100)
     # print_odds(an_array)
-    print_odds_rec(an_array)
+    # print_odds_rec(an_array)
+    print("Sum:",countdown(5))
 
 
 
