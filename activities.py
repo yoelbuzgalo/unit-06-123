@@ -40,6 +40,12 @@ def linear_timer():
     print(linear_search_timer(arr, 5000000))
     print(linear_search_timer(arr, 10000000))
 
+def binary_timer():
+    arr = array_utils.range_array(1, 10000001)
+    print(binary_search_timer(arr,1))
+    print(binary_search_timer(arr, 5000000))
+    print(binary_search_timer(arr, 10000000))
+
 def print_odds(an_array):
     for index in range(len(an_array)):
         if an_array[index] % 2 == 1:
@@ -104,14 +110,9 @@ def main():
     # print_odds_rec(an_array)
     # print("Sum:",countdown(5))
     # print(count_up(5))
-    print("Binary Search:", binary_search_timer(an_array, 1)) # First Index
-    print("Binary Search:", binary_search_timer(an_array, 50)) # Middle Index
-    print("Binary Search:", binary_search_timer(an_array, 100)) # Last Index
 
-    print("Linear Search:", linear_search_timer(an_array, 1)) # First Index
-    print("Linear Search:", linear_search_timer(an_array, 50)) # Middle Index
-    print("Linear Search:", linear_search_timer(an_array, 100)) # Last Index
-
+    linear_timer()
+    binary_timer()
 
 
 if __name__ == "__main__":

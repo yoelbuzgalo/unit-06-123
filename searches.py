@@ -4,7 +4,7 @@ import array_utils
 def linear_search(an_array, a_target):
     for index in range(len(an_array)):
         if an_array[index] == a_target:
-            return index
+            return an_array[index]
     else:
         return None
     
