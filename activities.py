@@ -84,6 +84,13 @@ def count_up(n, count=0):
         sum = count + count_up(n, count+1)
         return sum
 
+def binary_search_timer(an_array, target):
+    start = time.perf_counter()
+    searches.binary_search(an_array, target)
+    end = time.perf_counter()
+    elapsed = end - start
+    return elapsed
+
 def main():
     # random.seed(1)
     # making_arrays()
@@ -96,7 +103,14 @@ def main():
     # print_odds(an_array)
     # print_odds_rec(an_array)
     # print("Sum:",countdown(5))
-    print(count_up(5))
+    # print(count_up(5))
+    print("Binary Search:", binary_search_timer(an_array, 1)) # First Index
+    print("Binary Search:", binary_search_timer(an_array, 50)) # Middle Index
+    print("Binary Search:", binary_search_timer(an_array, 100)) # Last Index
+
+    print("Linear Search:", linear_search_timer(an_array, 1)) # First Index
+    print("Linear Search:", linear_search_timer(an_array, 50)) # Middle Index
+    print("Linear Search:", linear_search_timer(an_array, 100)) # Last Index
 
 
 
