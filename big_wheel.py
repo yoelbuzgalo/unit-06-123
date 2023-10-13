@@ -12,7 +12,7 @@ def print_big_wheel(big_wheel_arr):
     '''
     Prints every element in the passed array
     '''
-    print("Big Wheel Values:")
+    print("Big Wheel Options:")
     big_wheel_string = ""
     for index in range(len(big_wheel_arr)):
         print(big_wheel_arr[index], end=",")
@@ -58,21 +58,27 @@ def stat_big_wheel_rec(result_arr, current_index=0, count=0):
     '''
     if current_index < len(result_arr):
         if result_arr[current_index] <= 100:
-            return stat_big_wheel_rec(result_arr, (current_index+1), (count + 1))
+            return stat_big_wheel_rec(result_arr, (current_index+1), (count + 1)) # If number is less or equal to 100, it will add count and call the next stack
         else:
-            return stat_big_wheel_rec(result_arr, (current_index+1), count)
+            return stat_big_wheel_rec(result_arr, (current_index+1), count) # If number is not less or equal to 100, it will only proceed to call next stack
     else:
-        return count
+        return count # Otherwise, just return the count if the index has reached to max
+    
+def avg_big_wheel(result_sum, rounds):
+    '''This function returns the average calculation given a result sum and amount of rounds'''
+    return (result_sum/rounds) # Calculates the average by dividing result sum with the amount of rounds
+
 
 def main():
     '''
     Main entry of this program
     '''
-    big_wheel_array = create_big_wheel() # Creates a big wheel array, between 5 to 100
-    print_big_wheel(big_wheel_array)
 
+    big_wheel_array = create_big_wheel() # Creates a big wheel array, between 5 to 100
+
+    # User input (try block to validate inputs)
     try:
-        print() # Clears the previous \n deletion in print_big_wheel function
+        print() # Makes new line
         spin_threshold = int(input("Enter Spin Threshold To Spin a Second Time (between 5 and 100):"))
         simulation_run = int(input("How Many Rounds to run the simulation (between 1 and 100):"))
         if spin_threshold < 5 or spin_threshold > 100:
@@ -88,11 +94,20 @@ def main():
     for index in range(simulation_run):
         results_array[index] = run_round(big_wheel_array, spin_threshold)
 
-    # print_big_wheel_rec(results_array)
     result_sum = sum_big_wheel_rec(results_array)
     result_stats = stat_big_wheel_rec(results_array)
+    average_stat = avg_big_wheel(result_sum, len(results_array))
+    
+    # Prints desired output in order
+    print() # New line
+    print_big_wheel(big_wheel_array)
+    print("\n") # New line + another line to fix formatting because print big wheel removes \n after its statement print
+    print("Results from", len(results_array), "rounds")
+    print_big_wheel_rec(results_array)
+    print() # New line
     print("Sum:", result_sum)
-    print("Stats:", result_stats)
+    print("Rounds less than or equal to $100:", result_stats)
+    print("Average:", average_stat)
 
 if __name__ == "__main__":
     main()
