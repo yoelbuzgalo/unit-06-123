@@ -51,6 +51,18 @@ def sum_big_wheel_rec(result_arr, current_index=0, arr_sum=0):
         return sum_big_wheel_rec(result_arr, (current_index+1), (arr_sum + result_arr[current_index]))
     else:
         return arr_sum
+    
+def stat_big_wheel_rec(result_arr, current_index=0, count=0):
+    '''
+    This recursive function counts how many rounds were less than or equal to 100
+    '''
+    if current_index < len(result_arr):
+        if result_arr[current_index] <= 100:
+            return stat_big_wheel_rec(result_arr, (current_index+1), (count + 1))
+        else:
+            return stat_big_wheel_rec(result_arr, (current_index+1), count)
+    else:
+        return count
 
 def main():
     '''
@@ -78,7 +90,9 @@ def main():
 
     # print_big_wheel_rec(results_array)
     result_sum = sum_big_wheel_rec(results_array)
-    print(result_sum)
+    result_stats = stat_big_wheel_rec(results_array)
+    print("Sum:", result_sum)
+    print("Stats:", result_stats)
 
 if __name__ == "__main__":
     main()
