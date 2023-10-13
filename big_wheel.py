@@ -34,6 +34,14 @@ def run_round(big_wheel_arr, spin_thres):
     else:
         result_2 = spin_wheel(big_wheel_arr)
         return result + result_2
+    
+def print_big_wheel_rec(result_arr, current_index=0):
+    '''
+    This function prints every element in the array recursively
+    '''
+    if current_index < len(result_arr):
+        print(result_arr[current_index])
+        print_big_wheel_rec(result_arr, (current_index+1))
         
 
 def main():
@@ -59,6 +67,8 @@ def main():
     # loops simulation to run at a specific amount of times and adds it to the array
     for index in range(simulation_run):
         results_array[index] = run_round(big_wheel_array, spin_threshold)
+
+    print_big_wheel_rec(results_array)
 
 if __name__ == "__main__":
     main()
