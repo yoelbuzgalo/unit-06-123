@@ -16,7 +16,7 @@ def linear_search(an_array, a_target, start=None, end=None):
 
     for index in range(start_val, end_val):
         if an_array[index] == a_target:
-            return an_array[index]
+            return index
     else:
         return None
     
@@ -42,7 +42,7 @@ def binary_search(an_array, target, start=None, end=None):
     
     midpoint = (start+end) // 2
     if an_array[midpoint] == target:
-        return an_array[midpoint]
+        return midpoint
     elif an_array[midpoint] < target:
         return binary_search(an_array, target, midpoint+1, end)
     else:
@@ -59,19 +59,27 @@ def jump_search(an_array, target, start=0):
     search_block -= 1
     if an_array[search_block] == target:
         # the end of the search block matches target, target is found and returned
-        return an_array[search_block]
+        return search_block
     elif target > an_array[search_block]:
         # If the end value of the block is greater than the target, call itself for next stack with new starting value
         return jump_search(an_array, target, search_block)
     else:
         # Otherwise start linear search of that block
-        result = linear_search(an_array, target, start, search_block)
-        return result
+        return linear_search(an_array, target, start, search_block)
 
 
 def main():
     my_arr = array_utils.range_array(1,101)  # 101 is exclusive [1, 100]
     jump_search(my_arr, 100)
+
+    arr = array_utils.range_array(1,5) # Array is [1,2,3,4] (5 is not inclusive)
+    target = 1
+    expected = 0
+
+    # invoke
+    result = jump_search(arr, target)
+    print(result)
+
 
 if __name__ == "__main__":
     main()
