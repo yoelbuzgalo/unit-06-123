@@ -1,8 +1,18 @@
 import arrays
 import array_utils
+import math
 
-def linear_search(an_array, a_target):
-    for index in range(len(an_array)):
+def linear_search(an_array, a_target, start=None, end=None):
+    # Initialize Variables
+    start_val = start
+    end_val = end
+
+    if start is None or start < 0:
+        start_val = 0
+    if end is None or end > 0:
+        end_val = len(an_array)
+
+    for index in range(start_val, end_val):
         if an_array[index] == a_target:
             return an_array[index]
     else:
@@ -24,6 +34,25 @@ def binary_search(an_array, target, start=None, end=None):
     else:
         binary_search(an_array, target, start, midpoint-1)
     
+def jump_search(an_array, target, start=0):
+    '''
+    Searches an array using jump search algorithm
+    '''
+    search_block = start + int(math.sqrt(len(an_array))) # Gets the search block of a given array
+    
+    if search_block == 0 or search_block is None:
+        # Guard clause to check if block is invalid (empty array)
+        return None
+    
+    if an_array[search_block] == target:
+        # the end of the search block matches target, target is found and returned
+        return an_array[search_block]
+    elif target > an_array[search_block]:
+        # If the end value of the block is greater than the target, call itself for next stack with new starting value
+        return jump_search(an_array, target, search_block)
+    else:
+        # Otherwise start linear search of that block
+        return linear_search(an_array, target, start, search_block)
 
 
 def main():
@@ -32,7 +61,8 @@ def main():
     # print(linear_search(my_arr, 50))
     # print(linear_search(my_arr, 100))
     # print(linear_search(my_arr, 101))
-    print(binary_search(my_arr, 50))
+    # print(binary_search(my_arr, 50))
+    # print(jump_search(my_arr, 10))
 
 if __name__ == "__main__":
     main()
