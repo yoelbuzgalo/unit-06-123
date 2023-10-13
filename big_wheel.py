@@ -42,7 +42,15 @@ def print_big_wheel_rec(result_arr, current_index=0):
     if current_index < len(result_arr):
         print(result_arr[current_index])
         print_big_wheel_rec(result_arr, (current_index+1))
-        
+
+def sum_big_wheel_rec(result_arr, current_index=0, arr_sum=0):
+    '''
+    This recursive function gets the sum of all elements in the array
+    '''
+    if current_index < len(result_arr):
+        return sum_big_wheel_rec(result_arr, (current_index+1), (arr_sum + result_arr[current_index]))
+    else:
+        return arr_sum
 
 def main():
     '''
@@ -68,7 +76,9 @@ def main():
     for index in range(simulation_run):
         results_array[index] = run_round(big_wheel_array, spin_threshold)
 
-    print_big_wheel_rec(results_array)
+    # print_big_wheel_rec(results_array)
+    result_sum = sum_big_wheel_rec(results_array)
+    print(result_sum)
 
 if __name__ == "__main__":
     main()
