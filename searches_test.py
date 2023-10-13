@@ -95,8 +95,8 @@ def test_jump_search_mid():
 def test_jump_search_end():
     # setup
     arr = array_utils.range_array(1,5) # Array is [1,2,3,4] (5 is not inclusive)
-    target = 3
-    expected = 3 # Last number for search in the array is 3, not including 4.
+    target = 4
+    expected = 4 # Last number for search in the array is 3, not including 4.
 
     # invoke
     result = searches.jump_search(arr, target)
@@ -145,8 +145,8 @@ def test_binary_search_mid():
 def test_binary_search_end():
     # setup
     arr = array_utils.range_array(1,5) # Array is [1,2,3,4] (5 is not inclusive)
-    target = 3
-    expected = 3 # Last number for search in the array is 3, not including 4.
+    target = 4
+    expected = 4 # Last number for search in the array is 3, not including 4.
 
     # invoke
     result = searches.binary_search(arr, target)
