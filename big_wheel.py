@@ -24,6 +24,18 @@ def spin_wheel(big_wheel_arr):
     selected = random.randrange(0, len(big_wheel_arr)) # Chooses a random integer between 0 to the length of big_wheel_arr
     return big_wheel_arr[selected]
 
+def run_round(big_wheel_arr, spin_thres):
+    '''
+    This function calls spin_wheel, if the number is greater or equal to the number of spin_threshold, it will return that value otherwise return a sum of two values
+    '''
+    result = spin_wheel(big_wheel_arr)
+    if result >= spin_thres:
+        return result
+    else:
+        result_2 = spin_wheel(big_wheel_arr)
+        return result + result_2
+        
+
 def main():
     '''
     Main entry of this program
@@ -42,9 +54,11 @@ def main():
     except ValueError:
         print("Invalid input, please try again")
 
-    results_array = arrays.Array(simulation_run)
-    
-    
+    results_array = arrays.Array(simulation_run) # Creates results array given the amount of simulation runs it'll need
+
+    # loops simulation to run at a specific amount of times and adds it to the array
+    for index in range(simulation_run):
+        results_array[index] = run_round(big_wheel_array, spin_threshold)
 
 if __name__ == "__main__":
     main()
